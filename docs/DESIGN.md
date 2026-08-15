@@ -214,13 +214,17 @@ someone who has broken a bone."* Phrases are better on three counts:
 
 ### Where the homage lives
 
-Phrases are generated from the sign-up answers and the guest of honour's own
-form. They're absurd on the night and meaningful at the reveal — *"caramelize my
-onions"* lands very differently once the room learns it's something she actually
-says.
+Not in the phrases. They're generated word pairs and they mean nothing, by
+design — an earlier version derived them from what guests submitted, and that
+turns somebody's answer into a punchline they didn't agree to.
 
-Nobody is ever quizzed, and nothing can be got wrong. The phrases mean nothing
-until the end, which is exactly when they should start meaning something.
+**The homage is carried entirely by the picture.** Which makes the image choice
+the single most important content decision in any given event, and worth more
+care than everything else combined.
+
+Nobody is ever quizzed. Nothing can be got wrong. The only thing anyone learns
+about the guest of honour is what a hundred and thirty tiles of the room's own
+work turn out to add up to.
 
 ### The residue
 
