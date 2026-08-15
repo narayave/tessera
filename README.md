@@ -2,14 +2,11 @@
 
 ### A picture that only exists if you talk to people.
 
-A party game for a room full of strangers. Everyone holds one piece; nobody holds
-the picture.
+A party game for a room full of strangers.
 
-Everyone holds one piece of a picture. Nobody can see it. The only way to find
-the people whose pieces touch yours is to walk up and ask.
-
-Forty-five minutes later the picture is finished and the room isn't strangers
-anymore.
+Everyone holds one piece. Nobody holds the picture. The only way to find the
+people whose pieces touch yours is to walk up and ask — and forty-five minutes
+later the picture is finished and the room isn't strangers anymore.
 
 ---
 
