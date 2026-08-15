@@ -1,8 +1,9 @@
 <img src="brand/lockup.svg" alt="Tessera" width="260">
 
-### Nobody has the whole picture. That's the point.
+### A picture that only exists if you talk to people.
 
-A party game for a room full of strangers.
+A party game for a room full of strangers. Everyone holds one piece; nobody holds
+the picture.
 
 Everyone holds one piece of a picture. Nobody can see it. The only way to find
 the people whose pieces touch yours is to walk up and ask.
