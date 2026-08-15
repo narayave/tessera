@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+
+# local secrets — never commit
+.env
+.env.local
+.env.*.local
+
+# generated party content (real guest submissions)
+content/*.local.json
