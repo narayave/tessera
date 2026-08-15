@@ -120,8 +120,8 @@ specific prescription is extrapolation plus practitioner folklore.*
 Rewards pre-existing expertise. Produces one loud expert per team and three
 spectators. Violates equal status (an Allport condition for contact to work).
 
-**Especially disqualifying here:** half the room barely knows the birthday girl.
-Any mechanic where knowing her better means winning more is backwards.
+**Especially disqualifying here:** half the room may barely know the guest of
+honour. Any mechanic where knowing them better means winning more is backwards.
 
 ### Don't assume everyone can see one screen
 
@@ -131,10 +131,10 @@ genuinely cannot hear.
 **Applied:** phones are load-bearing; any shared screen is an amplifier that the
 game degrades gracefully without.
 
-### The birthday girl cannot be the moderator
+### The host cannot be the moderator
 
-Anything requiring a dedicated sober MC collapses the moment she's pulled away —
-which is constantly, at her own party. The host will also be holding a drink.
+Anything requiring a dedicated sober MC collapses the moment they're pulled away
+— which is constantly, at their own party. The host is also holding a drink.
 
 **Applied:** no referee role. Timeouts, re-rolls, and auto-reassignment recover
 game state with zero human intervention. Assume 30% of the room isn't paying

@@ -1,129 +1,147 @@
 # Decisions
 
-Ruled in and ruled out, with reasoning, so we don't relitigate. Newest at the
-bottom of each section.
+Ruled in and ruled out, with reasoning, so we don't relitigate.
 
 ---
 
 ## Ruled in
 
 ### One continuous game on one board
-**Decided by:** the author, explicitly.
-Multiple smaller games lose engagement. There is one map, one session, and the
-game never becomes a different game. Escalation happens by changing a parameter
-of the existing loop, never by switching activity.
+Multiple smaller games lose engagement — people stop understanding what they're
+doing and start waiting for it to be over. There is one board and one loop for
+the whole session. Escalation changes a parameter of that loop; it never switches
+activity.
 
-### The room is the puzzle, not the host
-Content comes from guest submissions collected before the event, not from
-hand-authoring. This is what makes the game a genuine icebreaker (the answer is
-always a person), makes the homage land by contrast, and is the only version that
-generalizes into a reusable project.
+### Purely cooperative, no opposition
+No opposing team, no contested tiles, no elimination, no leaderboard. The only
+available action is to find people and join with them.
 
-### Absorption, never elimination
-Losing means merging into the winner. Nobody is ever out. The game structurally
-converges on the whole room being one team.
+Reached the long way round, through several competitive designs. All of them hit
+the same wall: any mechanic producing losers produces guests standing at the edge
+of the room with nothing to do, and those are exactly the people the event exists
+to include.
 
-### Quorum enforced by information
-Tiles require *distinct fragments*, not *headcount*. Bodies can be faked; distinct
-private information cannot be free-ridden.
+### The room is the puzzle
+Content comes from guest sign-up answers, not hand-authoring. This is what makes
+finding somebody require a conversation, and it's the only version that
+generalises into a reusable project.
 
-### Fog of war cleared by meeting people
-You cannot see anyone's hand until you've traded codewords with them. This is the
-mixing engine, and it makes talking to people the only path to competence.
+### One player, one tile
+The picture's resolution *is* the guest list. Every tile is a person who came.
+Also keeps the mental model to one sentence.
 
-### Typed codewords for proof-of-meeting
-No QR (needs light and two hands), no Bluetooth (permissions, flaky in crowds,
-and invisible — players don't feel they did anything). A typed word works in the
-dark, one-handed, holding a drink.
+### Adjacency-driven discovery
+You can only connect to tiles that touch yours. This is what turns the game into
+a search for *specific* people rather than a scramble for whoever is nearest —
+and specific beats convenient for mixing.
 
-### Working units of four
-Conversation fractures above four speakers. Teams may grow; the unit that
-actually does a thing together does not.
+### Edge clues describe people, never name them
+An edge that said "tile 14" would be shouted across the room and the game would
+be over. An edge that says "someone who has broken a bone" has to be walked
+around with.
 
-### Per-person attribution on every claim
-Individual visible contribution eliminates social loafing outright. Cheap to
-build, highest-leverage lever available.
+### Uniqueness constraint on clues
+Each clue must identify exactly one person in the room, which makes tile
+assignment a constraint-satisfaction problem. Compound clues are the fallback.
 
-### The agent runs offline, the day before
-It ingests submissions and emits a frozen dataset which is human-reviewed before
-the party. No model call in the critical path — 28 people cannot wait on an API,
-and an ambiguous generated instruction has nobody to appeal to.
+### Regions grow their own frontier
+A joined region has more open edges than any member had alone, so growing means
+*more* people to meet. Opposite of most team games, where growth closes you off.
 
-A narrow live role is acceptable *later* only where failure is graceful (judging
-free text with an exact-match fallback; narrating the board).
+### Sign-up → lobby → deal
+A live lobby before the game opens establishes that everyone is in the same
+thing, and gives the host their single moment of control.
 
-### Phones are load-bearing; any shared screen is an amplifier
-A house is not an auditorium. The game must run completely without a TV.
+### The game is explained per-person, on their own screen
+The ceiling on a group rules explanation is about 30 seconds. Nobody ever
+addresses the room.
+
+### No referee
+The host is at their own party. Orphan tiles auto-seed, stalled edges surface
+themselves, suggestions time out and re-roll. The game recovers its own state.
+
+### Phones are load-bearing; a shared screen is an amplifier
+A house is not an auditorium. The game must run start to finish without a TV.
+
+### Any generation runs offline, ahead of time
+Tile assignment and clue selection are computed and reviewed before the event,
+never during it. Nothing waits on an API while 28 people stand around.
 
 ---
 
 ## Ruled out
 
-### Spaceteam-style crew rounds
-**Rejected by:** the author, explicitly.
-Mechanically it satisfied nearly every research constraint — simultaneous action,
-quarterbacking impossible, zero intellectual difficulty, one-sentence rules. But
-it makes the night a sequence of separate small rounds, and engagement dies when
-the experience isn't cohesive. Kept only as evidence of what a good core loop
-looks like.
+### Competitive territory / land grab
+Claiming tiles from other teams, contesting, absorbing losers. Produces
+disengaged losers among strangers, which is the failure state the whole project
+exists to avoid.
 
-### The Floor–style 1v1 duels
-Two people perform while 26 watch. Violates solo-spotlight and simultaneous-action
-constraints, and duels are trivia, which produces one expert and three
-spectators.
+### 1v1 duels
+Two people perform while everyone watches. Violates solo-spotlight and
+simultaneous-action constraints, and duels are almost always trivia, which
+produces one expert and three spectators.
 
-### Assassin / linked-list target chains
-Elimination-based. Also structurally slow: 28 players need 27 kills *in series*
-because the ring only shortens one link at a time, which is why the game normally
-runs 1–10 weeks. The inheritance mechanic has no function without elimination —
-its only job is keeping the ring connected as it contracts.
+### Elimination-based target chains (Assassin and variants)
+Elimination, plus a structural speed problem: `P` players need `P−1` removals *in
+series*, which is why the game normally runs for weeks. The inheritance mechanic
+has no function without elimination — its only job is keeping the ring connected
+as it contracts.
 
-**Extracted and kept:** the 15-second private briefing at the door, which is how
-the game avoids ever being explained to a room.
+**Extracted and kept:** the short private briefing at arrival, which is how the
+game avoids ever being explained to a room.
 
-### Hidden-role / social deduction (Traitors, Werewolf, The Mole)
+### Hidden-role / social deduction
 Paranoia is a slow-burn product of days of shared history. Among strangers at 45
-minutes, accusation is arbitrary and reads as mean. All eliminate as their core
-loop. Werewolf at 28 also has 60–105 minute downtime for night-one deaths.
+minutes, accusation is arbitrary and reads as mean. All such formats eliminate as
+their core loop.
+
+### High-intensity crew rounds
+Small teams, short rounds, merging between them. Mechanically strong — satisfied
+nearly every research constraint. Rejected for cohesion: it makes the night a
+sequence of separate small games.
 
 ### Trivia as the core mechanic
-Rewards pre-existing expertise. Disqualifying here specifically: half the room
-barely knows the birthday girl.
+Rewards pre-existing expertise, produces one loud expert and three spectators,
+and disqualifies half a room that may barely know the guest of honour.
 
 ### Individual leaderboards
-Guarantee a visible bottom third who stop playing, and this room will optimize
-against any published metric.
+Guarantee a visible bottom third who quietly stop playing.
 
 ### Random reshuffling between rounds
-Discards the group cohesion just built and resets people to strangers. Merge
-upward instead. *(This overturns the variant-shuffling design used in the
-`thirty-three` app.)*
+Discards group cohesion just built and resets people to strangers. Regions merge
+and persist instead.
 
 ### Host-gated progression
-Requires a sober MC driving the night from a control panel, at her own party. The
-game must self-pace and recover state with no referee.
+Requires a sober MC driving the night from a control panel, at their own party.
 
 ### A portfolio of mini-games
-Pointless rounds, connecting walls, collaborative bingo, Spaceteam. All good, all
-rejected for the same reason: cohesion. They may return as *flavour inside* the
-single loop, never as separate modes.
+All rejected for the same reason: cohesion. Individually good; collectively a
+fragmented evening. They may return as *flavour inside* the single loop, never as
+separate modes.
+
+### QR codes and Bluetooth proximity for confirming a meeting
+QR needs light and two hands. Proximity needs permissions, is flaky in a crowd,
+and is *invisible* — players don't feel they did anything. Mutual confirmation on
+both phones is the primitive.
 
 ---
 
 ## Open
 
-Tracked in `DESIGN.md` → *Open design questions*. Headlines:
+Tracked in `DESIGN.md` → *Open questions*. Headlines:
 
-- Contested vs permanent tile claims
-- Whether fragments are consumed on use
-- What prevents one hyper-social player from carrying the game
-- Map size and shape (needs simulation)
-- Crew composition at the door
-- Mid-game departures
+- One tile per person, or two?
+- Seeded corners vs a torus grid
+- Whether clues may be deliberately ambiguous
+- Whether the picture develops progressively or flips at the end
+- **The sign-up questions** — the most important unwritten content decision
+- Minimum viable tile count for a recognisable image
 
-## Unverified facts needed from the host
+## Facts needed from the host, per event
 
-- Is there a TV, and where?
-- House layout — how many rooms, how loud?
-- Will she push the pre-party form? (The content supply is the whole design.)
-- Rough map of who already knows whom.
+- Guest count, and how firm it is
+- Venue layout and how loud it gets
+- Whether a shared screen exists, and where
+- Whether they'll actually push the sign-up link — the content supply is the
+  whole design
+- Rough map of who already knows whom, so assignment can split existing clusters
