@@ -107,7 +107,12 @@ Four shapes, in order:
    sequence of separate small games.
 4. **The mosaic** — one board, one loop, purely cooperative, adjacency-driven.
 
-The through-line that survived all four: **the room is the puzzle.** Content
-comes from what guests submit about themselves before the event, never from
-hand-authoring. That's what makes the finding social, and it's what makes this a
-reusable project rather than a one-off.
+The through-line that survived all four: **the room is the puzzle.** Not because
+guests supply the content — an early version did that and it was dropped, since
+turning someone's submitted answer into a punchline is a good way to alienate
+them. The room is the puzzle because **the only information that matters is who
+is standing where, holding what.** That can't be authored, it can't be looked up,
+and it's different every time the game runs.
+
+Which means Tessera needs almost no content: a picture, a deck of questions, and
+a guest count. Everything else the room generates by existing.

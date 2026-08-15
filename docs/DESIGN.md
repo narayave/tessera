@@ -364,9 +364,10 @@ paying attention at any moment.
 5. **Does the picture develop, or flip all at once at the end?** Progressive
    development rewards momentum; a single flip is more dramatic. Possibly both —
    faint development, full-colour resolve.
-6. **What are the sign-up questions?** Still the most important unwritten content
-   decision. The bar changed, though: they no longer need to uniquely identify a
-   person, only to yield good absurd phrases. That is a much easier brief.
+6. **What's in the question deck?** The one content decision of any weight left.
+   Questions must be answerable in a sentence, deepen gracefully, and never
+   require wit on demand. Nothing is collected before the event any more —
+   phrases are generated and questions are answered live.
 7. **How coarse is too coarse?** 30 tiles may be too few for a recognisable face.
    Needs testing with a real image before the grid maths is locked.
 8. **What if a region anchors too early?** If seeds make position obvious in the

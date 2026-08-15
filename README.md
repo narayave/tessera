@@ -12,24 +12,33 @@ anymore.
 
 ## How it works
 
-**Before the party,** guests sign up and answer a handful of short questions
-about themselves. That's the entire content supply — no authoring required.
+**Everyone lands in a lobby** and waits for the room to fill. When the host opens
+the game, every guest is dealt one **tile** of a hidden mosaic — and nobody is
+told where their tile sits on the board.
 
-**At the party,** everyone lands in a lobby and waits for the room to fill. When
-the host opens the game, every guest is dealt exactly one **tile** of a hidden
-mosaic.
+All you get is four nonsense phrases, one per edge:
 
-Your tile touches four others. Your phone won't tell you *who* holds them — it
-tells you something *about* them:
+```
+              VELVET ANCHOR
+  PAPER LANTERN    ?    COPPER MONDAY
+              HOLLOW TRUMPET
+```
 
-> Your north edge fits **someone who has broken a bone.**
+They're manufactured, like passwords. They mean nothing. Somewhere in the room,
+one other phone holds the other half of one of them.
 
-So you go and ask. When you find them, you both confirm, and your tiles join.
+**So you wander around saying nonsense at strangers** until somebody's face
+changes. Everyone shares the same north, so the moment you match you know exactly
+where they are relative to you — your north is always somebody's south.
 
-**Joined tiles become a region, and regions merge.** There's nobody to play
-against — the only thing you can do is find more people and join forces. A bigger
-region has more open edges than you had alone, so growing means *more* people to
-go and meet, not fewer.
+**The match isn't the connection.** When two phrases meet, both phones show the
+same question, you both answer, and both answers reveal at once. *That's* what
+seals the edge. You each walk away knowing one real thing about the other.
+
+**Then their remaining phrases become visible to you.** Next time you meet
+someone hunting a phrase you've seen, you know exactly who to walk them over
+to — and you score for the introduction. By the end you've stopped hunting your
+own edges and started running a switchboard.
 
 **When the last edge connects,** the mosaic resolves into a picture. Usually the
 guest of honour, assembled out of everyone who came.
@@ -54,11 +63,13 @@ failure modes, and mechanics that structurally force collaboration. See
 
 Tessera is an engine. The content is data:
 
-- The **sign-up questions** guests answer.
 - The **picture** the mosaic resolves into.
+- The **question deck** — what two people are asked when an edge seals.
 - The **guest list**, which determines the mosaic's dimensions.
 
-Swap those three and it's your event. Birthday, offsite, reunion, conference
+No personal data is collected in advance. Guests give a name at the door and get
+a handle; the phrases are generated, and the questions are answered live. Swap
+those three and it's your event. Birthday, offsite, reunion, conference
 mixer — the engine doesn't care. It works for roughly 15–40 people who need to
 stop being strangers quickly.
 
