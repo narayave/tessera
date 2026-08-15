@@ -90,4 +90,4 @@ Both meanings are the game.
 
 ## License
 
-MIT (intended — not yet added).
+[MIT](LICENSE).
