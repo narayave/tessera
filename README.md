@@ -1,6 +1,8 @@
-# Tessera
+<img src="brand/lockup.svg" alt="Tessera" width="260">
 
-### A party game for a room full of strangers.
+### Nobody has the whole picture. That's the point.
+
+A party game for a room full of strangers.
 
 Everyone holds one piece of a picture. Nobody can see it. The only way to find
 the people whose pieces touch yours is to walk up and ask.

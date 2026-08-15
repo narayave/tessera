@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 56" width="64" height="56" role="img" aria-label="Tessera">
+  <g fill="currentColor" opacity=".28">
+    <rect x="2"  y="2"  width="16" height="16" rx="2"/>
+    <rect x="20" y="2"  width="16" height="16" rx="2"/>
+    <rect x="2"  y="20" width="16" height="16" rx="2"/>
+    <rect x="20" y="20" width="16" height="16" rx="2"/>
+    <rect x="38" y="20" width="16" height="16" rx="2"/>
+    <rect x="2"  y="38" width="16" height="16" rx="2"/>
+    <rect x="20" y="38" width="16" height="16" rx="2"/>
+    <rect x="38" y="38" width="16" height="16" rx="2"/>
+  </g>
+  <rect x="46" y="2" width="16" height="16" rx="2" fill="#E07B3C"/>
+</svg>
