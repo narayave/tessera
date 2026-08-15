@@ -10,11 +10,13 @@
 Guests sign up before the event and answer a few short questions about
 themselves. On the night they land in a lobby and wait for the room to fill. When
 the host opens the game, every guest is dealt exactly one tile of a hidden
-mosaic. Your tile touches four others; your phone describes the people holding
-them but never names them. You go and find those people. When you find one, your
-tiles join. Joined tiles form regions, regions merge, and a region has more open
-edges than any of its members had alone — so growing means more people to go and
-meet. When the last edge closes, the mosaic resolves into a picture.
+mosaic — and **nobody is told where their tile sits.** All you get is four
+nonsense phrases, one per edge. You wander, saying them out loud. Somewhere in
+the room another phone holds the other half of one of them. When you find each
+other, you both tap and the edge closes. Joined tiles form regions with known
+internal shape but unknown position, regions merge, and a region has more open
+edges than any of its members had alone — so growing means more people to meet.
+When the last edge closes, the mosaic resolves into a picture.
 
 No opponent. No elimination. No score. The only move in the game is to find
 someone and join.
@@ -24,13 +26,13 @@ someone and join.
 ## The core loop
 
 ```
-you hold one tile
-  → it has open edges
-    → each edge describes a person, not a name
-      → you have to walk around and ask people until you find them
-        → you both confirm; the edge closes; your tiles are now one region
-          → the region has more open edges than you did
-            → repeat, with more people, until the picture is whole
+you hold one tile, and four phrases that mean nothing to you
+  → you say them out loud at strangers
+    → somebody else is holding the other half of one
+      → you both tap; the edge closes; you learn which way they are from you
+        → your region has more open edges than you did
+          → and still nobody knows where the region sits on the board
+            → repeat, until the shape can only fit one way, and the picture lands
 ```
 
 Everything below is a parameter on this loop.
@@ -177,35 +179,100 @@ geometry for free.
 
 ---
 
-## Edge clues: why finding people is the fun part
+## Edge phrases: why finding people is the fun part
 
 An open edge never says *tile 14*. If it did, you'd shout a number across the
 room and the game would be over.
 
-It describes the person holding it, using something they said at sign-up:
+Instead each edge carries **one absurd phrase**, and the tile on the other side
+of that edge carries its other half. You don't know what it means. Neither does
+anyone else.
 
-> **north** — fits someone who has broken a bone
-> **east** — fits someone who moved country for a job
-> **south** — fits someone who can name every Bond actor
+```
+CARAMELIZE MY ONIONS
+SEVENTEEN MINUTES LATE
+THE BLUE SUITCASE
+NOBODY TELL MY MOTHER
+```
 
-So you circulate and ask. When you find them, you both confirm and the edge
-closes.
+So you wander around saying nonsense at strangers until somebody's face changes.
 
-Every connection in the game is therefore a real question asked to a real
-stranger, and the question came from that stranger's own answer — so it's a
-question they *want* to be asked.
+### Why nonsense beats a description of the person
 
-### The uniqueness constraint
+An earlier version made each edge describe the person holding it — *"fits
+someone who has broken a bone."* Phrases are better on three counts:
 
-For this to work, each clue must identify exactly one person in the room.
+- **Symmetric confusion.** A description makes you interrogate a stranger while
+  they get tested. A nonsense phrase leaves you both equally baffled. Nobody is
+  ever on the spot, which is the strongest available protection for the quietest
+  person in the room.
+- **Absurdity is a lower-stakes opener** than a personal question, and it stays
+  funny on the twentieth repetition where an interrogation does not.
+- **It removes the hardest computational problem in the design.** Descriptions
+  had to uniquely identify one guest, which was a constraint-satisfaction
+  problem. Matched pairs are unique by construction.
 
-That makes tile assignment a genuine constraint-satisfaction problem: **place
-players on the grid such that every adjacency has a uniquely-identifying clue
-available.** Where perfect uniqueness isn't achievable, the generator falls back
-to a compound clue ("broke a bone *and* has lived abroad").
+### Where the homage lives
 
-This is the piece of real maths in the project, and it's the job worth automating
-well.
+Phrases are generated from the sign-up answers and the guest of honour's own
+form. They're absurd on the night and meaningful at the reveal — *"caramelize my
+onions"* lands very differently once the room learns it's something she actually
+says.
+
+Nobody is ever quizzed, and nothing can be got wrong. The phrases mean nothing
+until the end, which is exactly when they should start meaning something.
+
+### The residue
+
+The one thing phrases cost is information transfer: you can match, tap, laugh and
+walk away having learned nothing about each other.
+
+So **when an edge closes, both phones show one thing about the other person**,
+drawn from their sign-up. The connection leaves a residue. It arrives *after* the
+laugh rather than as an interrogation before it, which is the right order.
+
+### Accepted degenerate strategy
+
+Someone will stand on a chair and shout all four of their phrases at the room.
+
+This is not a bug. It's loud and funny and it is the party working. Confirmation
+still requires both people to tap within a short window in the same place, so
+discovery can be broadcast but connection cannot.
+
+---
+
+## Nobody knows where they are
+
+This is the mechanic that makes the board a puzzle rather than a lookup.
+
+You are never told your coordinates. You know you hold a tile and you know its
+four phrases. When an edge closes you learn one relative fact — *they are to my
+east* — and nothing more.
+
+So regions form as **floating fragments**: known internal shape, unknown absolute
+position. A twelve-tile region can be a well-understood little map that still has
+no idea where it belongs.
+
+### Anchoring
+
+A region resolves its position when either:
+
+1. It connects to a **seed tile** — house-held, at a known corner, position
+   public from the start. Seeds are the reference frame.
+2. Its shape can only physically fit the remaining space one way.
+
+That second condition is the good one. It turns the endgame into the whole room
+reasoning out loud about where the pieces go — a group problem that is emergent
+rather than authored, and one that nobody can solve privately on their own phone.
+
+### What this buys
+
+- **The board can't be looked up.** No shouting a tile number; there are no tile
+  numbers.
+- **The shared screen finally has a real job:** unanchored regions drifting,
+  then locking into place when they resolve. It's genuinely good to watch.
+- **The last ten minutes have a shape.** Early game is chaotic matching; late
+  game is collective deduction. Same loop, different feel, no new rules.
 
 ---
 
@@ -237,22 +304,29 @@ clue. Small, and enough to feel like a secret.
 
 ## What the phone shows
 
-Small vocabulary, one thing at a time, legible at arm's length in party lighting.
+**Four phrases in big type.** That is the entire primary interface.
 
-- **Your tile** — and your name, big enough to show someone.
-- **Your open edges** — the clue for each, and nothing else.
-- **The board** — live, interactive, pan and zoom. Regions in colour, your region
-  highlighted, developing image where Era II has reached.
-- **Your region** — who's in it, so a group of four knows it's a group of four.
-- **One suggestion at a time**, re-rollable with a timeout, never a hard
-  requirement on a named person.
+The player never needs to know which of their phrases is a call and which is a
+response, or which edge is which, or where they are. They read them out loud. All
+of that bookkeeping lives on the server, away from someone holding a drink in a
+dim room.
+
+Secondary, one tap away:
+
+- **Your region** — who's in it and how you're arranged relative to each other.
+- **The board** — floating regions, live. Yours highlighted.
+- **The residue** — the things you learned about people you've connected to.
+
+Confirmation is **two taps**: you tap your phrase, they tap theirs, within a
+short window. No typing, no camera, no codes to read out in bad light.
 
 ## What a shared screen shows, if there is one
 
-Pure amplifier. The board, larger. Recent connections scrolling with names. Era
-changes. The resolve.
+Pure amplifier, and now it has a real job: **unanchored regions drifting, then
+locking into place** as they resolve. Recent connections scrolling with names.
+The final resolve.
 
-The game must run start to finish without it. A house is not an auditorium.
+The game must still run start to finish without it. A house is not an auditorium.
 
 ---
 
@@ -277,18 +351,27 @@ paying attention at any moment.
 1. **Is one tile per person enough?** Degree 4 means ~4 completed connections
    each. Two tiles per person doubles the connective tissue but halves the "I am
    one piece of this picture" clarity. Leaning one; wants a play test.
-2. **Corners vs torus.** Seeded corners are visually clean; a torus is perfectly
-   fair. Needs a test.
-3. **Can a clue ever be ambiguous on purpose?** A clue matching two people means
-   a wasted conversation — which is arguably a *feature*, since you met someone
-   either way.
-4. **Does the picture develop, or flip all at once at the end?** Era II says it
-   develops. The single flip is more dramatic. Possibly both: regions develop
-   faintly, the resolve is the full-colour reveal.
-5. **What are the sign-up questions?** The most important content decision in the
-   project and entirely unwritten.
-6. **How coarse is too coarse?** 30 tiles may be too few for a recognisable face.
+2. **Corners vs torus.** Seeded corners are visually clean and act as the
+   anchoring reference frame; a torus is perfectly fair but has no anchors, which
+   probably rules it out now that position is hidden.
+3. **How are phrase pairs written?** Call-and-response (*"caramelize my onions"* /
+   *"the onions are caramelized"*) is more satisfying to recognise but doubles the
+   generation difficulty. Identical tokens on both sides are trivial to generate
+   and impossible to get wrong. Leaning call-and-response for the top tier and
+   identical tokens as the fallback.
+4. **Should phrases be re-rollable?** A player stuck on an unsayable phrase has no
+   escape. A re-roll button is easy but lets people churn for easy matches.
+5. **Does the picture develop, or flip all at once at the end?** Progressive
+   development rewards momentum; a single flip is more dramatic. Possibly both —
+   faint development, full-colour resolve.
+6. **What are the sign-up questions?** Still the most important unwritten content
+   decision. The bar changed, though: they no longer need to uniquely identify a
+   person, only to yield good absurd phrases. That is a much easier brief.
+7. **How coarse is too coarse?** 30 tiles may be too few for a recognisable face.
    Needs testing with a real image before the grid maths is locked.
+8. **What if a region anchors too early?** If seeds make position obvious in the
+   first ten minutes, the late-game deduction evaporates. Seed placement and
+   count are a tuning knob and probably want simulating.
 
 ---
 
